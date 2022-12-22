@@ -49,7 +49,7 @@ this part can be ambigous even after reading the whole document provided by [fir
 External resource:
 https://kruzenshtern.org/firecracker-network-setup/  
 https://gist.github.com/s8sg/1acbe50c0d2b9be304cf46fa1e832847  
-https://blog.herecura.eu/blog/2020-05-21-toying-around-with-firecracker/
+https://blog.herecura.eu/blog/2020-05-21-toying-around-with-firecracker/  
 Finally I installed python on VM by
 ```
 apt install python3 python3-pip -y
@@ -57,5 +57,13 @@ pip3 install numpy
 ```
 and for conveying the test1 folder to VM Nginx is used
 
+### Running Firecracker
+Two shell prompts should be opened; one to run Firecracker and another to control it by writing to the API socket. It is important to ensure that the two shells are run in the same directory where the Firecracker binary is located.  
+In your first shell:
+```
+sudo setfacl -m u:${USER}:rw /dev/kvm; rm -f /tmp/firecracker.socket; ./firecracker --api-sock /tmp/firecracker.socket
+```
+and in second shell run run_server.sh  
+machine is customized to have 8 cpu and 16,384Mib of Memory. you can change it in run_server.sh 
 ### why KNN
 It is preferable to run a more complex DNN in order to gain insight into the impact of the underlying system on the model-serving performance. However, due to time constraints, it was decided to opt for the KNN approach initially. In order to provide more accurate results, the model should be run 100 or 1000 times and the average time calculated so having a more complex model will multiply the time. This is due to the fact that a single run may be biased and not provide an accurate result. Additionally, the complexity of a model requires the downloading of numerous libraries when building a Docker Image. This can be a challenge due to current connection and filtering issues within Iran. As such, the KNN model was written from scratch, only relying on the NumPy library.
