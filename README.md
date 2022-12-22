@@ -65,5 +65,20 @@ sudo setfacl -m u:${USER}:rw /dev/kvm; rm -f /tmp/firecracker.socket; ./firecrac
 ```
 and in second shell run run_server.sh  
 machine is customized to have 8 cpu and 16,384Mib of Memory. you can change it in run_server.sh 
+
+##Docker part
+to make a docker image out of our model (KNN.py), we need a DockerFile which is provided in the test1 folder. in DockerFile we have to specify the base we are making the image of, python 3.7 in this case, and make sure image has every required library within it by defining the installation through pip install at RUN part. Finally Image cmd can be runing the python file that has the depolyed model with it. then by opening a terminal at the file location you can make the image as shown below:
+```
+docker build -t image_name .
+```
+then you will be able to run it by 
+```
+docker run image_name -t
+```
+or 
+```
+docker build -it image_name .
+```
+if you want to have an interactive terminal to access all files in the image
 ### why KNN
 It is preferable to run a more complex DNN in order to gain insight into the impact of the underlying system on the model-serving performance. However, due to time constraints, it was decided to opt for the KNN approach initially. In order to provide more accurate results, the model should be run 100 or 1000 times and the average time calculated so having a more complex model will multiply the time. This is due to the fact that a single run may be biased and not provide an accurate result. Additionally, the complexity of a model requires the downloading of numerous libraries when building a Docker Image. This can be a challenge due to current connection and filtering issues within Iran. As such, the KNN model was written from scratch, only relying on the NumPy library.
