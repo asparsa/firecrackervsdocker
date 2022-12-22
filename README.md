@@ -45,5 +45,17 @@ after finishing this part you should update the package manager
 apt update
 apt install vim
 ```
+this part can be ambigous even after reading the whole document provided by [firecracker network setup](https://github.com/firecracker-microvm/firecracker/blob/main/docs/network-setup.md) so I got help from this three:
+External resource:
+https://kruzenshtern.org/firecracker-network-setup/  
+https://gist.github.com/s8sg/1acbe50c0d2b9be304cf46fa1e832847  
+https://blog.herecura.eu/blog/2020-05-21-toying-around-with-firecracker/
+Finally I installed python on VM by
+```
+apt install python3 python3-pip -y
+pip3 install numpy
+```
+and for conveying the test1 folder to VM Nginx is used
+
 ### why KNN
 It is preferable to run a more complex DNN in order to gain insight into the impact of the underlying system on the model-serving performance. However, due to time constraints, it was decided to opt for the KNN approach initially. In order to provide more accurate results, the model should be run 100 or 1000 times and the average time calculated so having a more complex model will multiply the time. This is due to the fact that a single run may be biased and not provide an accurate result. Additionally, the complexity of a model requires the downloading of numerous libraries when building a Docker Image. This can be a challenge due to current connection and filtering issues within Iran. As such, the KNN model was written from scratch, only relying on the NumPy library.
