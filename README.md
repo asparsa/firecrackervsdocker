@@ -45,8 +45,7 @@ after finishing this part you should update the package manager
 apt update
 apt install vim
 ```
-this part can be ambigous even after reading the whole document provided by [firecracker network setup](https://github.com/firecracker-microvm/firecracker/blob/main/docs/network-setup.md) so I got help from this three:
-External resource:
+this part can be ambigous even after reading the whole document provided by [firecracker network setup](https://github.com/firecracker-microvm/firecracker/blob/main/docs/network-setup.md) so I got help from this three External resource:
 https://kruzenshtern.org/firecracker-network-setup/  
 https://gist.github.com/s8sg/1acbe50c0d2b9be304cf46fa1e832847  
 https://blog.herecura.eu/blog/2020-05-21-toying-around-with-firecracker/  
