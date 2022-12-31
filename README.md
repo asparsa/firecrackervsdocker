@@ -2,7 +2,8 @@
 ## rep description
 In this report, a machine learning model (KNN) is run on Firecracker and a Docker container, both on CPU, and the performance of the algorithm is benchmarked in both scenarios. GPU utilization is not taken into account.
 
-## Firecracker part
+## Firecracker part  
+Firecracker is a virtual machine monitor (VMM) that uses the Linux Kernel-based Virtual Machine (KVM) to create and manage microVMs. Firecracker has a minimalist design. It excludes unnecessary devices and guest functionality to reduce the memory footprint and attack surface area of each microVM.  
 there is a complete documentat on [Getting Started with Firecracker](https://github.com/firecracker-microvm/firecracker/blob/main/docs/getting-started.md#getting-started-with-firecracker). but there are some considerations for deploying a model on firecracker that I listed and answered.
 - there aren't enough storage for installing python and other libraries on the Vm so you have increase it as shown below (I chosed 5G but you can define more if needed):
  ```
