@@ -91,5 +91,5 @@ Model | Docker | Firecracker
 KNN | 1.8965 | 2.0842
 DNN | 122.1339 | 167.3205
 
-## update
+## update (1/31/23)
 I finally had the time to test a DNN on both Docker and Firecracker. I have run it 10 times and took an average from it. you can find results in results part. there was some issues with previous results, so I have run it again to have more precise numbers. The problem was I was running firecracker on WSL on windows and the sources for docker and firecracker wasn't exactly the same. I made some adjustment to control it more and firecracker could achieve better results than before. I still need to check them on EC2 to be sure.
